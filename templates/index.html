@@ -3,9 +3,133 @@
 {% block title %}Home - Chat UI Mockup{% endblock %}
 
 {% block content %}
-<div id="chatWindow" class="flex flex-col space-y-4">
-    <!-- Example chat bubbles -->
-    <div class="self-start max-w-lg bg-gray-800 text-white rounded-lg px-4 py-2 shadow">Hello! How can I help you today?</div>
-    <div class="self-end max-w-lg bg-blue-600 text-white rounded-lg px-4 py-2 shadow">Hi! Show me the project files.</div>
+<div id="chatWindow" class="flex flex-col space-y-4 h-full">
+    <!-- Welcome message -->
+    <div class="self-center max-w-2xl text-center py-8">
+        <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+            Welcome to Chat UI
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">
+            Start a conversation by typing a message below. You can attach files, switch between AI models, and customize your experience using the sidebar panels.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3 text-sm">
+            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
+                📝 Text conversations
+            </span>
+            <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">
+                📎 File attachments
+            </span>
+            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full">
+                🤖 Multiple AI models
+            </span>
+        </div>
+    </div>
+    
+    <!-- Example chat bubbles (remove these in production) -->
+    <div class="space-y-4">
+        <div class="self-start chat-message bg-gray-800 dark:bg-gray-700 text-white rounded-lg px-4 py-2 shadow-sm">
+            Hello! How can I help you today?
+        </div>
+        
+        <div class="self-end chat-message bg-blue-600 text-white rounded-lg px-4 py-2 shadow-sm">
+            Hi! I'd like to know more about this chat interface.
+        </div>
+        
+        <div class="self-start chat-message bg-gray-800 dark:bg-gray-700 text-white rounded-lg px-4 py-2 shadow-sm">
+            This is a fully responsive chat interface built with Quart and Tailwind CSS. It features:
+            <br><br>
+            • Collapsible sidebars for navigation and file management<br>
+            • Dark/light mode toggle<br>
+            • File upload support<br>
+            • Mobile-optimized design<br>
+            • Multiple AI model selection<br>
+            • Auto-resizing text input
+        </div>
+        
+        <div class="self-end chat-message bg-blue-600 text-white rounded-lg px-4 py-2 shadow-sm">
+            That sounds great! Can you show me the project files?
+        </div>
+        
+        <div class="self-start chat-message bg-gray-800 dark:bg-gray-700 text-white rounded-lg px-4 py-2 shadow-sm">
+            Sure! You can explore the project structure using the right sidebar panel. Click the toggle button in the header to open it, or use the keyboard shortcut <kbd class="px-2 py-1 bg-gray-600 rounded text-xs">Ctrl+J</kbd>.
+        </div>
+    </div>
+    
+    <!-- Keyboard shortcuts info (hidden by default) -->
+    <div id="shortcutsInfo" class="hidden fixed bottom-20 right-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-4 text-sm max-w-xs">
+        <h4 class="font-semibold mb-2">Keyboard Shortcuts</h4>
+        <div class="space-y-1 text-xs">
+            <div><kbd>Ctrl+B</kbd> - Toggle left sidebar</div>
+            <div><kbd>Ctrl+J</kbd> - Toggle right sidebar</div>
+            <div><kbd>Ctrl+Shift+L</kbd> - Toggle dark mode</div>
+            <div><kbd>Enter</kbd> - Send message</div>
+            <div><kbd>Shift+Enter</kbd> - New line</div>
+            <div><kbd>Esc</kbd> - Close sidebars/panels</div>
+        </div>
+    </div>
 </div>
+
+<!-- Floating action button for shortcuts (mobile) -->
+<button 
+    id="shortcutsFab" 
+    class="md:hidden fixed bottom-20 right-4 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center z-30"
+    title="Show shortcuts"
+>
+    <i class="fas fa-question-circle"></i>
+</button>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Page-specific JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle shortcuts info toggle
+    const shortcutsFab = document.getElementById('shortcutsFab');
+    const shortcutsInfo = document.getElementById('shortcutsInfo');
+    
+    shortcutsFab?.addEventListener('click', function() {
+        shortcutsInfo?.classList.toggle('hidden');
+    });
+    
+    // Hide shortcuts info when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!shortcutsFab?.contains(e.target) && !shortcutsInfo?.contains(e.target)) {
+            shortcutsInfo?.classList.add('hidden');
+        }
+    });
+    
+    // Auto-hide welcome message after first user interaction
+    const chatInput = document.getElementById('chatInput');
+    const welcomeMessage = document.querySelector('.self-center.max-w-2xl');
+    
+    function hideWelcome() {
+        if (welcomeMessage) {
+            welcomeMessage.style.transition = 'opacity 0.3s ease-out';
+            welcomeMessage.style.opacity = '0';
+            setTimeout(() => {
+                welcomeMessage.remove();
+            }, 300);
+        }
+    }
+    
+    chatInput?.addEventListener('input', function() {
+        if (this.value.trim().length > 0) {
+            hideWelcome();
+        }
+    }, { once: true });
+    
+    // Initialize example animations
+    const chatBubbles = document.querySelectorAll('.chat-message');
+    chatBubbles.forEach((bubble, index) => {
+        bubble.style.opacity = '0';
+        bubble.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            bubble.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+            bubble.style.opacity = '1';
+            bubble.style.transform = 'translateY(0)';
+        }, index * 200 + 500); // Staggered animation
+    });
+});
+</script>
 {% endblock %}
