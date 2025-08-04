@@ -1,6 +1,7 @@
 services:
   quart-app:
     build: .
+    command: sh -c "pip install -q uvicorn && uvicorn app:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app --reload-include '*.py' --reload-include '*.html'"
     ports:
       - "8000:8000"
     volumes:
@@ -8,3 +9,5 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
       - PYTHONDONTWRITEBYTECODE=1
+      - QUART_ENV=development
+      - QUART_DEBUG=1
