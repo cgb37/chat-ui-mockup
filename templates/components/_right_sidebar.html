@@ -1,0 +1,120 @@
+<!-- Right Sidebar Component -->
+<aside 
+    id="rightSidebar" 
+    class="w-80 bg-gray-900 dark:bg-gray-900 text-gray-100 shadow-xl sidebar-transition
+           sidebar-mobile sidebar-right-mobile sidebar-hidden-right
+           md:sidebar-desktop md:translate-x-0 md:shadow-lg
+           border-l border-gray-700 z-50 custom-scrollbar"
+    data-open="false"
+>
+    <!-- Sidebar Header -->
+    <div class="p-4 border-b border-gray-800 flex items-center justify-between bg-gray-800">
+        <h2 class="font-semibold text-xl sidebar-title">Project Files</h2>
+        <button 
+            id="rightSidebarClose" 
+            class="md:hidden p-1 hover:bg-gray-700 rounded transition-colors btn-focus"
+            aria-label="Close sidebar"
+        >
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- File Explorer -->
+    <div class="flex-1 overflow-y-auto custom-scrollbar">
+        <!-- Search Bar -->
+        <div class="p-4 border-b border-gray-800">
+            <div class="relative">
+                <input 
+                    type="text" 
+                    placeholder="Search files..." 
+                    class="w-full px-3 py-2 pl-10 bg-gray-800 border border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-search text-gray-400 text-sm"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- File Tree -->
+        <div class="p-4">
+            <div class="space-y-1">
+                <!-- Root Folder -->
+                <div class="mb-4">
+                    <button class="flex items-center w-full text-left hover:bg-gray-800 p-2 rounded-lg transition-colors">
+                        <i class="fas fa-folder-open text-blue-400"></i>
+                        <span class="ml-2 font-medium">chat-ui-project</span>
+                    </button>
+                    
+                    <!-- Files and Folders -->
+                    <div class="ml-6 mt-2 space-y-1">
+                        <div class="flex items-center hover:bg-gray-800 p-2 rounded-lg transition-colors cursor-pointer group">
+                            <i class="fab fa-python text-yellow-400"></i>
+                            <span class="ml-2 text-sm">app.py</span>
+                            <div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button class="p-1 hover:bg-gray-700 rounded">
+                                    <i class="fas fa-ellipsis-h text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center hover:bg-gray-800 p-2 rounded-lg transition-colors cursor-pointer group">
+                            <i class="fab fa-docker text-blue-400"></i>
+                            <span class="ml-2 text-sm">Dockerfile</span>
+                            <div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button class="p-1 hover:bg-gray-700 rounded">
+                                    <i class="fas fa-ellipsis-h text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center hover:bg-gray-800 p-2 rounded-lg transition-colors cursor-pointer group">
+                            <i class="fas fa-file-code text-gray-400"></i>
+                            <span class="ml-2 text-sm">docker-compose.yml</span>
+                            <div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button class="p-1 hover:bg-gray-700 rounded">
+                                    <i class="fas fa-ellipsis-h text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Templates Folder -->
+                        <button class="flex items-center w-full text-left hover:bg-gray-800 p-2 rounded-lg transition-colors">
+                            <i class="fas fa-folder text-blue-400"></i>
+                            <span class="ml-2 text-sm">templates/</span>
+                        </button>
+                        
+                        <!-- Static Folder -->
+                        <button class="flex items-center w-full text-left hover:bg-gray-800 p-2 rounded-lg transition-colors">
+                            <i class="fas fa-folder text-blue-400"></i>
+                            <span class="ml-2 text-sm">static/</span>
+                        </button>
+                        
+                        <div class="flex items-center hover:bg-gray-800 p-2 rounded-lg transition-colors cursor-pointer group">
+                            <i class="fab fa-markdown text-gray-300"></i>
+                            <span class="ml-2 text-sm">README.md</span>
+                            <div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button class="p-1 hover:bg-gray-700 rounded">
+                                    <i class="fas fa-ellipsis-h text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sidebar Footer -->
+    <div class="p-4 border-t border-gray-800 bg-gray-800">
+        <div class="text-xs text-gray-400 space-y-1">
+            <div class="flex justify-between">
+                <span>Files:</span>
+                <span>12</span>
+            </div>
+            <div class="flex justify-between">
+                <span>Size:</span>
+                <span>2.4 MB</span>
+            </div>
+        </div>
+    </div>
+</aside>
