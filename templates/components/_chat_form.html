@@ -1,0 +1,96 @@
+<!-- Chat Form Component -->
+<div class="chat-form-container">
+    <form id="chatForm" class="flex items-center space-x-2 md:space-x-3">
+        <!-- Attachment button -->
+        <label for="imageUpload" class="cursor-pointer flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors btn-focus">
+            <i class="fas fa-paperclip text-gray-600 dark:text-gray-300"></i>
+            <input id="imageUpload" name="image" type="file" accept="image/*,application/pdf,.txt,.md" class="hidden" multiple />
+        </label>
+        
+        <!-- Additional controls for larger screens -->
+        <div class="hidden md:flex items-center space-x-2">
+            <!-- Model choice dropdown -->
+            <select id="modelChoice" class="px-3 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-gray<!-- Chat Form Component -->
+<div class="chat-form-container">
+    <form id="chatForm" class="flex items-center space-x-2 md:space-x-3">
+        <!-- Attachment button -->
+        <label for="imageUpload" class="cursor-pointer flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors btn-focus">
+            <i class="fas fa-paperclip text-gray-600 dark:text-gray-300"></i>
+            <input id="imageUpload" name="image" type="file" accept="image/*,application/pdf,.txt,.md" class="hidden" multiple />
+        </label>
+        
+        <!-- Additional controls for larger screens -->
+        <div class="hidden md:flex items-center space-x-2">
+            <!-- Model choice dropdown -->
+            <select id="modelChoice" class="px-3 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-gray-100 text-sm">
+                <option value="gpt-4">GPT-4</option>
+                <option value="gpt-3.5">GPT-3.5</option>
+                <option value="claude">Claude</option>
+            </select>
+            
+            <!-- Tools button -->
+            <button 
+                type="button" 
+                id="toolsBtn" 
+                class="flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors btn-focus"
+                title="Tools"
+            >
+                <i class="fas fa-wrench text-gray-600 dark:text-gray-300"></i>
+            </button>
+        </div>
+        
+        <!-- Message input -->
+        <div class="flex-1 relative">
+            <textarea 
+                id="chatInput" 
+                name="message" 
+                placeholder="Type your message..." 
+                rows="1"
+                class="w-full px-4 py-3 pr-12 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                style="min-height: 44px; max-height: 120px;"
+                autocomplete="off"
+            ></textarea>
+            
+            <!-- Character counter (hidden by default) -->
+            <div id="charCounter" class="absolute bottom-1 right-12 text-xs text-gray-400 hidden"></div>
+        </div>
+        
+        <!-- Send button -->
+        <button 
+            type="submit" 
+            id="sendBtn"
+            class="flex items-center justify-center w-11 h-11 bg-blue-600 rounded-lg text-white hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors btn-focus"
+            disabled
+        >
+            <i class="fas fa-paper-plane"></i>
+        </button>
+        
+        <!-- Mobile menu button for additional options -->
+        <button 
+            type="button" 
+            id="mobileFormOptions" 
+            class="md:hidden flex items-center justify-center w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors btn-focus"
+        >
+            <i class="fas fa-ellipsis-v text-gray-600 dark:text-gray-300"></i>
+        </button>
+    </form>
+    
+    <!-- Mobile options panel (hidden by default) -->
+    <div id="mobileOptionsPanel" class="md:hidden mt-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg hidden fade-in">
+        <div class="flex items-center justify-between space-x-3">
+            <select id="mobileModelChoice" class="flex-1 px-3 py-2 bg-white dark:bg-gray-700 rounded-lg border border-gray-300 dark:border-gray-600 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="gpt-4">GPT-4</option>
+                <option value="gpt-3.5">GPT-3.5</option>
+                <option value="claude">Claude</option>
+            </select>
+            
+            <button 
+                type="button" 
+                id="mobileToolsBtn" 
+                class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm"
+            >
+                Tools
+            </button>
+        </div>
+    </div>
+</div>
