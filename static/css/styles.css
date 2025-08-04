@@ -1,0 +1,142 @@
+/* Custom CSS Variables */
+:root {
+  --sidebar-width: 320px;
+  --header-height: 64px;
+  --footer-height: 60px;
+}
+
+/* Font */
+.font-inter {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Dark mode body styling */
+.dark body {
+  background: #0f0f0f;
+  color: #f3f4f6;
+}
+
+/* Sidebar transitions */
+.sidebar-transition {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile sidebar positioning */
+@media (max-width: 768px) {
+  .sidebar-mobile {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 50;
+    width: var(--sidebar-width);
+  }
+  
+  .sidebar-left-mobile {
+    left: 0;
+  }
+  
+  .sidebar-right-mobile {
+    right: 0;
+  }
+  
+  .sidebar-hidden-left {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar-hidden-right {
+    transform: translateX(100%);
+  }
+}
+
+/* Desktop sidebar styling */
+@media (min-width: 769px) {
+  .sidebar-desktop {
+    position: relative;
+    height: auto;
+  }
+  
+  .sidebar-collapsed {
+    width: 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+}
+
+/* Chat form styling */
+.chat-form-container {
+  border-top: 1px solid rgb(209 213 219);
+  background-color: white;
+  padding: 1rem;
+}
+
+.dark .chat-form-container {
+  border-top-color: rgb(55 65 81);
+  background-color: rgb(31 41 55);
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(156 163 175);
+  border-radius: 3px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(75 85 99);
+}
+
+/* Button focus styles */
+.btn-focus:focus {
+  outline: 2px solid rgb(59 130 246);
+  outline-offset: 2px;
+}
+
+/* Responsive text sizing */
+@media (max-width: 640px) {
+  .header-title {
+    font-size: 1rem;
+  }
+  
+  .sidebar-title {
+    font-size: 1.125rem;
+  }
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Chat message styling */
+.chat-message {
+  max-width: 75%;
+  word-wrap: break-word;
+  animation: slideUp 0.2s ease-out;
+}
+
+@media (max-width: 640px) {
+  .chat-message {
+    max-width: 90%;
+  }
+}
