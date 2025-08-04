@@ -1,0 +1,54 @@
+<!-- Header Component -->
+<header class="w-full h-16 bg-gray-800 dark:bg-gray-800 text-gray-100 flex items-center px-4 z-30 shadow-lg border-b border-gray-700">
+    <!-- Left sidebar toggle -->
+    <button 
+        id="leftSidebarToggle" 
+        class="mr-3 p-2 hover:bg-gray-700 rounded-lg transition-colors btn-focus"
+        aria-label="Toggle left sidebar"
+    >
+        <i class="fas fa-bars w-5 h-5"></i>
+        <i class="fas fa-columns w-5 h-5"></i>
+    </button>
+    
+    <!-- Header title - centered on mobile, left-aligned on desktop -->
+    <div class="flex-1 flex items-center justify-center md:justify-start">
+        <h1 class="font-semibold text-lg md:text-xl header-title">Chat UI Mockup</h1>
+    </div>
+    
+    <!-- Header controls -->
+    <div class="flex items-center space-x-2 md:space-x-3">
+        <!-- Navigation - hidden on mobile -->
+        <nav class="hidden lg:flex space-x-4">
+            <a href="#" class="hover:text-blue-300 transition-colors">Docs</a>
+            <a href="#" class="hover:text-blue-300 transition-colors">About</a>
+        </nav>
+        
+        <!-- Dark mode toggle -->
+        <button 
+            id="darkModeToggle" 
+            class="p-2 hover:bg-gray-700 rounded-lg transition-colors btn-focus"
+            aria-label="Toggle dark mode"
+        >
+            <i class="fas fa-sun w-5 h-5"></i>
+            
+        </button>
+        
+        <!-- Right sidebar toggle -->
+        <button 
+            id="rightSidebarToggle" 
+            class="p-2 hover:bg-gray-700 rounded-lg transition-colors btn-focus"
+            aria-label="Toggle right sidebar"
+        >
+            <i class="fas fa-chevron-right w-5 h-5"></i>
+        </button>
+        
+        <!-- Mobile menu toggle (for additional options) -->
+        <button 
+            id="mobileMenuToggle" 
+            class="md:hidden p-2 hover:bg-gray-700 rounded-lg transition-colors btn-focus"
+            aria-label="Toggle mobile menu"
+        >
+            <i class="fas fa-ellipsis-v w-5 h-5"></i>
+        </button>
+    </div>
+</header>
